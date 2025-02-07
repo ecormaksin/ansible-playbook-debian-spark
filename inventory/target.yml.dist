@@ -1,0 +1,10 @@
+# このファイルをコピー→「target.yml」へファイル名変更して利用してください。
+all:
+  hosts:
+    ubuntu-01: # マシンの名前は任意
+      ansible_host: <ansible_host> # Ansible実行対象のホスト名を設定する
+      # ansible_port: <ansible_port> # VirtualBox上の仮想マシンなど、NAT接続＋ポートフォワーディングで接続する場合に指定する
+      ansible_become_pass: <ansible_become_pass> # 管理者権限として実行する時のパスワードを指定する
+  vars:
+    ansible_user: <ansible_user> # Ansibleを実行する時の一般ユーザーを指定する
+    ansible_ssh_private_key_file: <ansible_ssh_private_key_file> # Ansible実行対象のホストへ接続する時の秘密鍵のパスを指定する
