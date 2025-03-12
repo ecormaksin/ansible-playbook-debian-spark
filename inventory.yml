@@ -1,0 +1,9 @@
+all:
+  children:
+    kerberos-primary:
+      hosts:
+        server1:
+    kerberos-replica:
+      hosts:
+        server2:
+        server3:

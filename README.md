@@ -7,14 +7,14 @@
 
 ```
 # playbookのシンタックスチェック
-ansible-playbook -vv --syntax-check -i ./inventory/target.yml --extra-vars @secrets.yml site.yml
+ansible-playbook -vv --syntax-check -i inventory.yml --extra-vars @control-node.yml --extra-vars @secrets.yml site.yml
 
 # ドライラン
-ansible-playbook -vv --check -i ./inventory/target.yml --extra-vars @secrets.yml site.yml
+ansible-playbook -vv --check -i inventory.yml --extra-vars @control-node.yml --extra-vars @secrets.yml site.yml
 
 # 実際に実行
-ansible-playbook -vv -i ./inventory/target.yml --extra-vars @secrets.yml site.yml
+ansible-playbook -vv -i inventory.yml --extra-vars @control-node.yml --extra-vars @secrets.yml site.yml
 
 # 途中から実行
-ansible-playbook -vv --start-at="<途中から開始したいタスク名>" -i ./inventory/target.yml --extra-vars @secrets.yml site.yml
+ansible-playbook -vv --start-at="<途中から開始したいタスク名>" -i inventory.yml --extra-vars @control-node.yml --extra-vars @secrets.yml site.yml
 ```

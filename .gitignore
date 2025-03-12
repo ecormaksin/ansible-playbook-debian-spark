@@ -1,3 +1,7 @@
 inventory/target.yml
 secrets.yml
 work.txt
+control-node.yml
+host_vars/server1.yml
+host_vars/server2.yml
+host_vars/server3.yml
