@@ -1,1 +1,1 @@
-/home/ecor/ws/ghq/github.com/ecormaksin/ansible_galaxy_role_kerberos-private_files/host_vars/server1.yml
+ansible_host: <host for server3>
