@@ -1,9 +1,9 @@
 all:
   children:
-    kerberos-primary:
+    kerberosprimary:
       hosts:
         server1:
-    kerberos-replica:
+    kerberosreplica:
       hosts:
         server2:
         server3:
