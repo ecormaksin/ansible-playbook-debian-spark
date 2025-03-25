@@ -2,3 +2,6 @@
 	path = roles/kerberos
 	url = https://github.com/ecormaksin/ansible_galaxy_role_kerberos.git
 	ignore = dirty
+[submodule "roles/hadoop"]
+	path = roles/hadoop
+	url = https://github.com/ecormaksin/ansible_galaxy_role_hadoop.git
