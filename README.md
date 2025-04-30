@@ -51,7 +51,7 @@ ansible-playbook -vv -i inventory.yml --extra-vars @control-node.yml --extra-var
   sudo su - -c "$HADOOP_HOME/bin/yarn --daemon start nodemanager" -s /usr/bin/bash yarn
   ```
 
-- 特定のノード（プロキシ未設定の場合は実施不要）
+- 特定のノード
 
   ```shell
   sudo su - -c "$HADOOP_HOME/bin/yarn --daemon start proxyserver" -s /usr/bin/bash yarn
@@ -89,7 +89,7 @@ ansible-playbook -vv -i inventory.yml --extra-vars @control-node.yml --extra-var
   sudo su - -c "$HADOOP_HOME/bin/yarn --daemon stop nodemanager" -s /usr/bin/bash yarn
   ```
 
-- 特定のノード（プロキシ未設定の場合は実施不要）
+- 特定のノード
 
   ```shell
   sudo su - -c "$HADOOP_HOME/bin/yarn --daemon stop proxyserver" -s /usr/bin/bash yarn
