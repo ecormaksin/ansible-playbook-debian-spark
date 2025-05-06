@@ -65,22 +65,18 @@ ansible-playbook -vv -i inventory.yml --extra-vars @control-node.yml --extra-var
 
 ### シャットダウン
 
+※ [ドキュメント](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/ClusterSetup.html) では、`Hadoop Startup` セクションと同じ順序でシャットダウン コマンドが記述されているが、ResourceManagerをNodeManagerより先にシャットダウンすると、NodeManagerのシャットダウン時に `WARNING: nodemanager did not stop gracefully after 5 seconds: Trying to kill with kill -9` が発生するので、スタートアップの順序と逆に記述している。
+
 - 特定のノード
 
   ```shell
-  sudo su - -c "$HADOOP_HOME/bin/hdfs --daemon stop namenode" -s /usr/bin/bash hdfs
-  ```
-
-- 各ノード
-
-  ```shell
-  sudo su - -c "$HADOOP_HOME/bin/hdfs --daemon stop datanode" -s /usr/bin/bash hdfs
+  sudo su - -c "$HADOOP_HOME/bin/mapred --daemon stop historyserver" -s /usr/bin/bash mapred
   ```
 
 - 特定のノード
 
   ```shell
-  sudo su - -c "$HADOOP_HOME/bin/yarn --daemon stop resourcemanager" -s /usr/bin/bash yarn
+  sudo su - -c "$HADOOP_HOME/bin/yarn --daemon stop proxyserver" -s /usr/bin/bash yarn
   ```
 
 - 各ノード
@@ -92,12 +88,17 @@ ansible-playbook -vv -i inventory.yml --extra-vars @control-node.yml --extra-var
 - 特定のノード
 
   ```shell
-  sudo su - -c "$HADOOP_HOME/bin/yarn --daemon stop proxyserver" -s /usr/bin/bash yarn
+  sudo su - -c "$HADOOP_HOME/bin/yarn --daemon stop resourcemanager" -s /usr/bin/bash yarn
+  ```
+
+- 各ノード
+
+  ```shell
+  sudo su - -c "$HADOOP_HOME/bin/hdfs --daemon stop datanode" -s /usr/bin/bash hdfs
   ```
 
 - 特定のノード
 
   ```shell
-  sudo su - -c "$HADOOP_HOME/bin/mapred --daemon stop historyserver" -s /usr/bin/bash mapred
+  sudo su - -c "$HADOOP_HOME/bin/hdfs --daemon stop namenode" -s /usr/bin/bash hdfs
   ```
-
